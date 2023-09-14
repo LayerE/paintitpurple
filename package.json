@@ -1,3 +1,4 @@
+
 {
   "name": "drop-store",
   "description": "Demo store template for @shopify/hydrogen",
@@ -9,7 +10,8 @@
   },
   "scripts": {
     "dev": "shopify hydrogen dev",
-    "build": "shopify hydrogen build",
+ 
+    "build": "shopify hydrogen build --entry worker",
     "preview": "shopify hydrogen preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "lint-ts": "tsc --noEmit",
