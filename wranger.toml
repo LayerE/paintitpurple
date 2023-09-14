@@ -1,0 +1,15 @@
+# wrangler.toml
+
+account_id = ""
+compatibility_date = "2022-01-28"
+compatibility_flags = ["streams_enable_constructors"]
+main = "dist/worker/index.js"
+name = "paintitpurple"
+route = ""
+workers_dev = true
+
+[site]
+bucket = "dist/client"
+
+[build]
+command = "yarn && yarn build"
