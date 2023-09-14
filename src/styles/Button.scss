@@ -1,0 +1,204 @@
+.button {
+  position: relative;
+  display: block;
+  background: transparent;
+  width: 400px;
+  height: 86px;
+  line-height: 86px;
+  text-align: center;
+  font-size: 26px;
+  text-decoration: none;
+  color: #fff;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0px !important;
+  outline: 0;
+  font-weight: 600;
+  transition: 0.3s ease-in-out all;
+  z-index: 3;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img.beforetext {
+    margin-right: 5px;
+  }
+  img.aftertext {
+    margin-left: 5px;
+  }
+
+  .button__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+      background-color: inherit;
+      width: calc(100% - 8px);
+      height: calc(50% - 6px);
+      transition: 0.3s ease-in-out all;
+      left: 4px;
+      z-index: -1;
+      background-color: #000000;
+    }
+    &::before {
+      transform: perspective(20px) rotateX(3deg);
+      top: 6px;
+    }
+
+    &::after {
+      transform: perspective(20px) rotateX(-3deg);
+
+      bottom: 6px;
+    }
+  }
+
+  span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    z-index: 20;
+    transform: translate(-50%, -50%) translate3d(0, 0, 10px) !important;
+  }
+}
+.button:before,
+.button:after {
+  position: absolute;
+  content: '';
+  width: 400px;
+  left: 0px;
+  height: 42px;
+  border-radius: 2px;
+  z-index: -2 !important;
+  background-color: #000;
+}
+
+.button:before {
+  transform: perspective(20px) rotateX(3deg);
+  top: 0px;
+}
+.button:after {
+  top: 43px;
+  transform: perspective(20px) rotateX(-3deg);
+}
+
+/* Button Border Style */
+
+.button.border:before,
+.button.border:after {
+  border: 2px solid #000;
+  z-index: -1;
+  transition: 0.3s ease-in-out transform;
+}
+.button.border:before {
+  border-bottom: none;
+}
+.button.border:after {
+  border-top: none;
+}
+
+/* Button hover styles */
+
+.button.border:hover {
+  &::before,
+  .button__inner::before {
+    transform: perspective(22px) rotateX(3deg) scale(1.02);
+  }
+
+  &::after,
+  .button__inner::after {
+    transform: perspective(22px) rotateX(-3deg) scale(1.02);
+  }
+  &::before,
+  &::after {
+    background-color: transparent;
+  }
+}
+.button.border:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    width: 360px;
+    font-size: 22px;
+    height: 72px;
+    line-height: 72px;
+  }
+
+  .button::after,
+  .button::before {
+    height: 36px;
+    width: 360px;
+  }
+
+  .button::after {
+    top: 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    width: 300px;
+    font-size: 18px;
+    height: 64px;
+    line-height: 64px;
+  }
+
+  .button::after,
+  .button::before {
+    height: 32px;
+    width: 300px;
+  }
+
+  .button::after {
+    top: 32px;
+  }
+}
+// .button__outer {
+//   .btn-full {
+//     margin: 30px auto;
+//     width: 96%;
+
+//     &::before,
+//     &::after {
+//       width: 100%;
+//     }
+//   }
+
+//   .btn-full:before,
+//   .btn-full:after {
+//     width: 100%;
+//   }
+// }
+
+.button__outer {
+  .btn-pink {
+    &::before,
+    &::after {
+      border-color: #f959b3;
+      background-color: #f959b3;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .btn-pink .button__inner {
+    &::after,
+    &::before {
+      background-color: #f959b3;
+    }
+  }
+}
